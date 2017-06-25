@@ -12,7 +12,7 @@
         $scope.checkIfTooMuch = function () {       
           if ($scope.listofDishes == "") {
               $scope.messageColor = 'red';
-              $scope.lunchMessage = "Please enter data first"
+              $scope.lunchMessage = "Please enter data first";
           } else {
               $scope.messageColor = 'green';
               var arrayOfDishes = $scope.listofDishes.split(',');
@@ -25,8 +25,10 @@
                       numOfDishes += 1;
                   } 
               }
-              
-              if (numOfDishes < 4) {
+              if (numOfDishes == 0) {
+                  $scope.messageColor = 'red';
+                  $scope.lunchMessage = "Please enter data first";
+              } else if (numOfDishes < 4) {
                   $scope.lunchMessage = "Enjoy!";
               } else {
                   $scope.lunchMessage = "Too Much!"
